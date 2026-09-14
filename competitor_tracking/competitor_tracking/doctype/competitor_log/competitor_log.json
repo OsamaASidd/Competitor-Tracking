@@ -1,0 +1,126 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "format:CLOG-{YYYY}-{######}",
+ "creation": "2026-09-11 13:30:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "competitor",
+  "competitor_country",
+  "col_break_1",
+  "creation_date",
+  "client",
+  "log_source",
+  "section_uploads",
+  "uploads",
+  "section_linkedin_posts",
+  "linkedin_posts"
+ ],
+ "fields": [
+  {
+   "fieldname": "competitor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Competitor Name",
+   "options": "Competitor",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "competitor.custom_country",
+   "fieldname": "competitor_country",
+   "fieldtype": "Link",
+   "label": "Competitor Country",
+   "options": "Country",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "creation_date",
+   "fieldtype": "Date",
+   "label": "Creation Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Client",
+   "options": "Customer"
+  },
+  {
+   "default": "Manual",
+   "fieldname": "log_source",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Source",
+   "options": "Manual\nLinkedIn Scraper",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_uploads",
+   "fieldtype": "Section Break",
+   "label": "Uploads"
+  },
+  {
+   "fieldname": "uploads",
+   "fieldtype": "Table",
+   "label": "Uploads",
+   "options": "Competitor Log Detail"
+  },
+  {
+   "depends_on": "eval:doc.log_source == 'LinkedIn Scraper'",
+   "fieldname": "section_linkedin_posts",
+   "fieldtype": "Section Break",
+   "label": "LinkedIn Posts"
+  },
+  {
+   "fieldname": "linkedin_posts",
+   "fieldtype": "Table",
+   "label": "LinkedIn Posts",
+   "options": "Competitor LinkedIn Post"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-11 13:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Competitor Tracking",
+ "name": "Competitor Log",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "competitor",
+ "track_changes": 1
+}

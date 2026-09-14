@@ -5,6 +5,13 @@ app_description = "Track competitors, their activity uploads, and links to oppor
 app_email = "osama.siddiqui2017@gmail.com"
 app_license = "mit"
 
+fixtures = [
+	{
+		"dt": "Client Script",
+		"filters": [["name", "in", ["Competitor Tracking Competitor Client Script"]]],
+	},
+]
+
 # Apps
 # ------------------
 
@@ -82,8 +89,7 @@ app_license = "mit"
 # Installation
 # ------------
 
-# before_install = "competitor_tracking.install.before_install"
-# after_install = "competitor_tracking.install.after_install"
+after_install = "competitor_tracking.install.after_install"
 
 # Uninstallation
 # ------------
@@ -148,23 +154,11 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"competitor_tracking.tasks.all"
-# 	],
-# 	"daily": [
-# 		"competitor_tracking.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"competitor_tracking.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"competitor_tracking.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"competitor_tracking.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"daily": [
+		"competitor_tracking.linkedin_posts_scraper.scrape_all_competitors"
+	],
+}
 
 # Testing
 # -------

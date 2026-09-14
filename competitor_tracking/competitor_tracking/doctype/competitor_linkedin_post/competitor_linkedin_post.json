@@ -1,0 +1,130 @@
+{
+ "actions": [],
+ "creation": "2026-09-11 14:15:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "post_url",
+  "ai_category",
+  "posted_date",
+  "scraped_on",
+  "col_break_1",
+  "reactions_count",
+  "comments_count",
+  "reposts_count",
+  "section_content",
+  "post_text",
+  "image_urls",
+  "video_url",
+  "article_url"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "post_url",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Post URL",
+   "options": "URL",
+   "read_only": 1,
+   "unique": 0
+  },
+  {
+   "columns": 2,
+   "fieldname": "ai_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "AI Category",
+   "options": "\nNew Client\nPublicity & Marketing\nNew Technology\nNew Discovery\nPartnership & Collaboration\nHiring & Team Growth\nAward & Recognition\nEvent & Conference\nCSR & Community\nEmployee Appreciation\nOther",
+   "description": "Assigned automatically by a local open-source LLM (Ollama) when the post is scraped. Editable - correct it yourself if the AI got it wrong."
+  },
+  {
+   "columns": 1,
+   "fieldname": "posted_date",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Posted",
+   "read_only": 1,
+   "description": "Relative time as shown by LinkedIn at scrape time (e.g. \"3d\"), not an absolute date."
+  },
+  {
+   "fieldname": "scraped_on",
+   "fieldtype": "Datetime",
+   "label": "Scraped On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "reactions_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Reactions",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "comments_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Comments",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reposts_count",
+   "fieldtype": "Int",
+   "label": "Reposts",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_content",
+   "fieldtype": "Section Break",
+   "label": "Content"
+  },
+  {
+   "fieldname": "post_text",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Post Text",
+   "read_only": 1
+  },
+  {
+   "fieldname": "image_urls",
+   "fieldtype": "Small Text",
+   "label": "Image URLs",
+   "read_only": 1,
+   "description": "One URL per line."
+  },
+  {
+   "fieldname": "video_url",
+   "fieldtype": "Data",
+   "label": "Video URL",
+   "options": "URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "article_url",
+   "fieldtype": "Data",
+   "label": "Article URL",
+   "options": "URL",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-11 14:15:00.000000",
+ "modified_by": "Administrator",
+ "module": "Competitor Tracking",
+ "name": "Competitor LinkedIn Post",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

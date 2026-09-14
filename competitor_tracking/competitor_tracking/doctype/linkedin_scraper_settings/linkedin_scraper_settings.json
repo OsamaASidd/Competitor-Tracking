@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "creation": "2026-09-11 14:15:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "auth_method",
+  "section_cookie",
+  "li_at_cookie",
+  "section_credentials",
+  "linkedin_email",
+  "linkedin_password",
+  "section_scrape_settings",
+  "posts_per_competitor",
+  "section_ai",
+  "enable_ai_classification",
+  "ollama_host",
+  "ollama_model",
+  "help_section",
+  "help_html"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "description": "Turn this on to enable the scheduled LinkedIn Posts Scraper. Leave off until Auth is configured and tested.",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "default": "Cookie",
+   "description": "Cookie auth reuses a session you already established by logging in normally in your own browser - lower risk of triggering LinkedIn's security checkpoint than a fresh automated login from a server.",
+   "fieldname": "auth_method",
+   "fieldtype": "Select",
+   "label": "Authentication Method",
+   "options": "Cookie\nEmail and Password",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.auth_method == 'Cookie'",
+   "fieldname": "section_cookie",
+   "fieldtype": "Section Break",
+   "label": "Cookie Authentication (Recommended)"
+  },
+  {
+   "depends_on": "eval:doc.auth_method == 'Cookie'",
+   "description": "The value of the \"li_at\" cookie from a browser where you're already logged into LinkedIn (DevTools → Application/Storage → Cookies → linkedin.com → li_at). Expires periodically and will need refreshing.",
+   "fieldname": "li_at_cookie",
+   "fieldtype": "Password",
+   "label": "li_at Cookie Value"
+  },
+  {
+   "depends_on": "eval:doc.auth_method == 'Email and Password'",
+   "fieldname": "section_credentials",
+   "fieldtype": "Section Break",
+   "label": "Email/Password Authentication"
+  },
+  {
+   "depends_on": "eval:doc.auth_method == 'Email and Password'",
+   "description": "Higher risk of triggering LinkedIn's security checkpoint/CAPTCHA when logging in from a server IP. Prefer Cookie auth if possible.",
+   "fieldname": "linkedin_email",
+   "fieldtype": "Data",
+   "label": "LinkedIn Email"
+  },
+  {
+   "depends_on": "eval:doc.auth_method == 'Email and Password'",
+   "fieldname": "linkedin_password",
+   "fieldtype": "Password",
+   "label": "LinkedIn Password"
+  },
+  {
+   "fieldname": "section_scrape_settings",
+   "fieldtype": "Section Break",
+   "label": "Scrape Settings"
+  },
+  {
+   "default": "10",
+   "description": "Maximum posts to fetch per Competitor on each scheduled run.",
+   "fieldname": "posts_per_competitor",
+   "fieldtype": "Int",
+   "label": "Posts per Competitor"
+  },
+  {
+   "fieldname": "section_ai",
+   "fieldtype": "Section Break",
+   "label": "AI Post Classification"
+  },
+  {
+   "default": "1",
+   "description": "Uses a free, open-source LLM running locally via Ollama to label each new post (New Client, Publicity & Marketing, New Technology, etc). If Ollama isn't reachable, posts are just left unclassified - scraping itself is unaffected.",
+   "fieldname": "enable_ai_classification",
+   "fieldtype": "Check",
+   "label": "Enable AI Classification"
+  },
+  {
+   "default": "http://127.0.0.1:11434",
+   "depends_on": "eval:doc.enable_ai_classification",
+   "description": "Base URL of the Ollama server.",
+   "fieldname": "ollama_host",
+   "fieldtype": "Data",
+   "label": "Ollama Host"
+  },
+  {
+   "default": "qwen2.5:3b",
+   "depends_on": "eval:doc.enable_ai_classification",
+   "description": "Must already be pulled on the Ollama server (ollama pull <model>).",
+   "fieldname": "ollama_model",
+   "fieldtype": "Data",
+   "label": "Ollama Model"
+  },
+  {
+   "fieldname": "help_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "help_html",
+   "fieldtype": "HTML",
+   "options": "<div class=\"text-muted\"><p>Scraping LinkedIn is against their Terms of Service. Using an account for automated scraping carries a real risk of that account being restricted or banned - use an account you're comfortable with that risk on, not a primary personal or company account.</p><p>The scheduled job runs daily and only scrapes Competitors that have a LinkedIn Company URL set.</p></div>"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-09-11 14:15:00.000000",
+ "modified_by": "Administrator",
+ "module": "Competitor Tracking",
+ "name": "LinkedIn Scraper Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

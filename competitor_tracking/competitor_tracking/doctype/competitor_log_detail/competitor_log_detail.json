@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "creation": "2026-09-11 13:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "upload_type",
+  "attachment",
+  "remarks",
+  "col_break_1",
+  "model",
+  "kw",
+  "equivalence_af",
+  "opportunity"
+ ],
+ "fields": [
+  {
+   "fieldname": "upload_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Upload Type",
+   "options": "Competitor Upload Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Attachment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remarks",
+   "reqd": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Model"
+  },
+  {
+   "fieldname": "kw",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "KW"
+  },
+  {
+   "fieldname": "equivalence_af",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Equivalence AF"
+  },
+  {
+   "fieldname": "opportunity",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Link to Opportunity",
+   "options": "Opportunity"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-11 13:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Competitor Tracking",
+ "name": "Competitor Log Detail",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
